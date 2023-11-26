@@ -6,9 +6,12 @@ import cors from "cors"
 app.use(express.json())
 app.use(cors())
 
+//create route
+const userRoute = express.Router()
 
 //middlewars
-const userRoute = express.Router()
+app.use("/api/v1/users",userRoute)
+
 
 
 app.get('/', (req:Request, res:Response) => {
@@ -18,17 +21,19 @@ app.get('/', (req:Request, res:Response) => {
   })
 })
 
-app.use("/api/v1/users",userRoute)
+
 userRoute.get("/all-user",(req,res)=>{
   const users = [
     {id:1,
-    name:"laskdjs"},
-    {id:1,
-    name:"laskdjs"}
+    name:"name1"},
+    {id:2,
+    name:"name 2"}
   ]
   res.status(200).json({
     success:true,
     data:users
   })
 })
+
+
 export default app;
