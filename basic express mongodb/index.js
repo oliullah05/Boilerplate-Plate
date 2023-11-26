@@ -23,23 +23,44 @@ const client = new MongoClient(uri, {
   }
 });
 
+
+const userCollection = client.db("Users-Boiler").collection("users-data");
+
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
 
-
-
     app.get("/",(req,res)=>{
         res.send("server is running")
     })
 
+    // get all user
+
+   app.get("/users",async(req,res)=>{
+    const result = await userCollection.find().toArray()
+    res.send(result)
+   })
+
+// get user by email 
 
 
+app.get("/users/:email",async(res,req)=>{
+  const getEmail =  req.params.email
+  const filter = {email:getEmail}
+ const result = await userCollection.findOne(filter)
+ res.send(result)
 
+})
 
+app.get("/users/:id",async(res,req)=>{
+  const getEmail =  req.params.id
+  const filter = {id:getEmail}
+ const result = await userCollection.findOne(filter)
+ res.send(result)
 
+})
 
 
 
