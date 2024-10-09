@@ -88,7 +88,7 @@ ans-6: JSON
  {
   "semi": true,
   "singleQuote": true
-}}
+}
 
 
 ```
@@ -137,5 +137,14 @@ npm install --save-dev eslint-config-prettier
 "format:fix": "npx prettier --write src"
 
 ```
+
+
+## Important Links
+
+ - [Eslint And Prettier Setup](https://mobisoftinfotech.com/resources/blog/set-up-node-and-express-js-project-from-scratch-with-typescript-eslint-and-prettier)
+ - [Eslint Doesnt Work In Vscode](https://stackoverflow.com/questions/75381505/what-is-the-reason-eslint-doesnt-work-in-vs-code)
+
+
+
 
 
